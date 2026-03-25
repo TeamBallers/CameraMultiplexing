@@ -83,14 +83,13 @@ class WorkThread:
             except Exception as e:
                 print("except: "+str(e))
 
-        i = 0
-        while True:
+        for i in range(100):
             for item in {"A","B","C","D"}:
                 self.select_channel(item)
                 time.sleep(0.02)
                 try:
                     picam2.capture_file(f"{item}/image_{i}.jpg")
-                    picam2.capture_file(f"{item}/image_{i}.jpg")
+                    picam2.capture_file(f"{item}/image_{i+1}.jpg")
                     # buf = picam2.capture_array()
                     # buf = picam2.capture_array()
                     # cvimg = QImage(buf, width, height,QImage.Format_RGB888)
@@ -105,7 +104,7 @@ class WorkThread:
                     #     image_label4.setPixmap(pixmap)
                 except Exception as e:
                     print("capture_buffer: "+ str(e))
-            i += 1
+            i += 2
 
 # app = QApplication([])
 # window = QWidget()
