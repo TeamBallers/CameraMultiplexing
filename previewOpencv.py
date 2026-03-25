@@ -59,7 +59,7 @@ class WorkThread:
 
         flag = False
 
-        for item in {"A","B","C","D"}:
+        for item in {"A","B","C"}:
             try:
                 self.select_channel(item)
                 self.init_i2c(item)
@@ -84,7 +84,7 @@ class WorkThread:
                 print("except: "+str(e))
 
         for i in range(100):
-            for item in {"A","B","C","D"}:
+            for item in {"A","B","C"}:
                 self.select_channel(item)
                 time.sleep(0.02)
                 try:
